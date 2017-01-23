@@ -12,7 +12,7 @@ node {
     export ros_release_name="indigo"
     export ubuntu_version_name="trusty"
 
-    export relative_job_path=${WORKSPACE#$HOME}
+export relative_job_path=${'''${WORKSPACE}'''#$HOME}
 
     export unit_tests_result_dir="$relative_job_path/unit_tests"
     export coverage_tests_result_dir="$relative_job_path/code_coverage"
