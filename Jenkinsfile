@@ -4,7 +4,7 @@ node {
     checkout scm
   }
   stage('Build'){
-  sh '''#!/bin/bash -l
+  sh """#!/bin/bash -l
     export docker_image_name="shadowrobot/build-tools:trusty-indigo"
     export toolset_branch="master"
     export server_type="local"
@@ -19,6 +19,6 @@ node {
 
     export remote_shell_script="https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$toolset_branch/bin/sr-run-ci-build.sh"
     curl -s "$( echo "$remote_shell_script" | sed 's/#/%23/g' )" | bash /dev/stdin "$toolset_branch" $server_type $used_modules $relative_job_path
-  '''
+  """
   }
 }
