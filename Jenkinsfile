@@ -1,9 +1,10 @@
+def docker_image_name='shadowrobot/build-tools:trusty-indigo'
 node {
   stage('Checkout'){
     checkout scm
   }
   stage('Build'){
-    sh 'export docker_image_name="shadowrobot/build-tools:trusty-indigo"'
+    sh "export docker_image_name='${docker_image_name}'"
     sh 'export toolset_branch="master"'
     sh 'export server_type="local"'
     sh 'export used_modules="check_cache,code_coverage"'
