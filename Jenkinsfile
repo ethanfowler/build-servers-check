@@ -10,7 +10,7 @@ node {
     sh 'export used_modules="check_cache,code_coverage"'
     sh 'export ros_release_name="indigo"'
     sh 'export ubuntu_version_name="trusty"'
-    sh "export relative_job_path=$\{${WORKSPACE}#$HOME}"
+    sh "export relative_job_path=${${WORKSPACE}#$HOME}"
     sh "export unit_tests_result_dir='${env.relative_job_path}/unit_tests'"
     sh "export coverage_tests_result_dir='${env.relative_job_path}/code_coverage'"
     sh "export remote_shell_script='https://raw.githubusercontent.com/shadow-robot/sr-build-tools/${env.toolset_branch}/bin/sr-run-ci-build.sh'"
